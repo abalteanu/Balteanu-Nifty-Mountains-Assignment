@@ -1,0 +1,102 @@
+/*****************************************************************************
+ *	Name:     Ana Balteanu                                                    *
+ *	Date:     9/19/2020                                                       *
+ *                                                                            *
+ *	Description:    Nifty Mountains *
+ *                              *
+ *                                                                            *
+ *****************************************************************************/
+
+
+/* RETURNS
+return 1 = cannot open text file
+*/
+
+#include "main.h"
+
+using namespace std;
+
+int main() {
+
+    //setting data
+    char *fileName = "Colorado.dat";
+    apmatrix<short> data(480,844);
+    if (MapDataDrawer(fileName, data) == false) {
+        cout << "error, cannot open file" << endl;
+        return 1;
+    }
+
+    drawMap(data);
+    return 0;
+}
+
+//read data from given file into a 2D array (use apmatrix)
+bool MapDataDrawer(const char *fname, apmatrix<short> &map) {
+
+    ifstream dataFile(fname);
+    //checking if files can open for reading
+    if (!dataFile.is_open() ) {
+        cout << "Unable to open file" << endl;
+        return false;
+    } else {
+        //reading from file into 2D array
+        for (int j = 0; j < map.numrows(); j++) {
+            for (int i =0 ; i<map.numcols(); i++) {
+                dataFile >> map[j][i];
+            }
+        }
+        return true;
+    }
+}
+
+//return the minimum value in the map
+short findMin(apmatrix<short> &map){
+
+    short num = map[0][0];
+    //going through each short in a array and comparing it to the smallest array value (stored in num)
+    for (int j = 0; j < map.numrows(); j++) {
+        for (int i =0 ; i<map.numcols(); i++) {
+            if (map[j][i] < num){
+                //if next array value is smaller than what is currently stored in num, num gets replaced by smaller value
+                num = map[j][i];
+            }
+        }
+    }
+    cout << "Min altitutde is: " << num << endl;
+    return num;
+}
+
+//return the max value in the map
+short findMax(apmatrix<short> &map){
+
+    short num = map[0][0];
+    //going through each short in a array and comparing it to the largest array value (stored in num)
+    for (int j = 0; j < map.numrows(); j++) {
+        for (int i = 0 ; i < map.numcols(); i++) {
+            if (map[j][i] > num){
+                //if next array value is larger than what is currently stored in num, num gets replaced by larger value
+                num = map[j][i];
+            }
+        }
+    }
+    cout << "Max altitutde is: " << num << endl;
+    return num;
+}
+
+//daws elevation map
+void drawMap(apmatrix<short> map){
+
+    //finding min & max altitudes
+    short minAlt = findMin(map);
+    short maxAlt = findMax(map);
+    float colour;
+
+    for (int j = 0; j < map.numrows(); j++) {
+        for (int i = 0 ; i < map.numcols(); i++) {
+            colour = float(map[j][i] - minAlt) / float(maxAlt - minAlt)/256;
+            cout << colour << endl;
+        }
+    }
+    //cout << "incrementing value is " << increment << endl;
+
+}

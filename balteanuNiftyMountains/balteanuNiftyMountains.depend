@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1601876221 source:c:\users\amazia\documents\anacomp12\balteanuniftymountains\main.cpp
+	"main.h"
+
+1601954147 c:\users\amazia\documents\anacomp12\balteanuniftymountains\main.h
+	<iostream>
+	<fstream>
+	<iomanip>
+	<string.h>
+	<math.h>
+	<time.h>
+	<stdlib.h>
+	<limits.h>
+	<queue>
+	"apmatrix.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+
+1600746018 c:\users\amazia\documents\anacomp12\balteanuniftymountains\apmatrix.h
+	"apvector.h"
+	"apmatrix.cpp"
+
+1600746022 c:\users\amazia\documents\anacomp12\balteanuniftymountains\apvector.h
+	"apvector.cpp"
+
+1600745915 c:\users\amazia\documents\anacomp12\balteanuniftymountains\apvector.cpp
+	<cstdlib>
+	<cassert>
+	<iostream>
+	"apvector.h"
+
+1600746021 c:\users\amazia\documents\anacomp12\balteanuniftymountains\apmatrix.cpp
+
+1601876614 source:c:\users\amazia\documents\anacomp12\balteanuniftymountains\display.cpp
+	"main.h"
+
+1601873534 source:c:\users\amazia\documents\anacomp12\balteanuniftymountains\calculations.cpp
+	"main.h"
+
+1601957694 source:c:\users\amazia\documents\anacomp12\balteanuniftymountains\everypixel.cpp
+	"main.h"
+
+1602000422 source:c:\users\amazia\documents\anacomp12\balteanuniftymountains\spfaalgorithm.cpp
+	"main.h"
+
